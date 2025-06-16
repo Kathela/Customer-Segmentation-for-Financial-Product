@@ -1,5 +1,7 @@
 # Customer-Segmentation-for-Financial-Product
 Analysis and segmentation of financial clients using PCA and KMeans clustering to identify profiles and behavioral patterns. Includes visualizations and application of the model to new data to validate results in Python.
+
+
 This project aims to segment the customers of a financial company using unsupervised learning techniques. To do so, the project begins by importing and visually exploring the original dataset, which includes variables such as salary, credit card limit, length of service, credit type, and whether they were offered a product. This initial exploration allows for the identification of potential visual groupings, particularly by observing relationships such as salary vs. credit limit.
 
 Principal component analysis (PCA) was then applied, a statistical technique that reduces the size of the dataset without losing too much information. This facilitates subsequent analysis and improves model performance. PCA was able to reduce the number of variables while retaining 80% of the total variance. With the transformed data, the elbow method was used to determine the optimal number of clusters, which indicated that 5 was the appropriate number to segment customers.
