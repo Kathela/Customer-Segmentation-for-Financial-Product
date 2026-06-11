@@ -1,27 +1,51 @@
-# Customer-Segmentation-for-Financial-Product
-Analysis and segmentation of financial clients using PCA and KMeans clustering to identify profiles and behavioral patterns. Includes visualizations and application of the model to new data to validate results in Python.
+# Customer Segmentation for Financial Products
+### Unsupervised ML · PCA · K-Means · Python
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
-This project aims to segment the customers of a financial company using unsupervised learning techniques. To do so, the project begins by importing and visually exploring the original dataset, which includes variables such as salary, credit card limit, length of service, credit type, and whether they were offered a product. This initial exploration allows for the identification of potential visual groupings, particularly by observing relationships such as salary vs. credit limit.
+---
 
-Principal component analysis (PCA) was then applied, a statistical technique that reduces the size of the dataset without losing too much information. This facilitates subsequent analysis and improves model performance. PCA was able to reduce the number of variables while retaining 80% of the total variance. With the transformed data, the elbow method was used to determine the optimal number of clusters, which indicated that 5 was the appropriate number to segment customers.
+## Problem statement
 
-The KMeans algorithm was then applied with 5 clusters, grouping customers according to similarities found in the PCA-transformed data. The quality of the model was subsequently assessed using metrics such as the Silhouette Score, Calinski-Harabasz, and Davies-Bouldin, confirming that the clusters were well-defined and separated. In addition, 3D graphs were created to visualize these groups more intuitively.
+Financial companies often apply generic campaigns to their entire customer base, resulting in low conversion rates and wasted marketing spend. This project builds a data-driven segmentation model to identify distinct customer profiles based on financial behavior, enabling targeted product recommendations.
 
-Once the groups were created, their average characteristics (salary, credit limit, length of time as a customer) were analyzed, and the number of products offered or specific types of credit was counted. This allowed the clusters to be characterized and the typical profile of customers in each group to be understood. Bar charts were also generated to clearly visualize these differences and compare them.
+## Approach
 
-Finally, the same trained model was applied to a new dataset with 50 new customers. These data were processed using the same scaler, PCA, and clustering model, ensuring consistency with the original model. They were then visualized alongside previous customers in a 3D graph, clearly differentiating new customers through the use of different symbols. Average salaries, credit limits, and tenure were also calculated for new customers based on the cluster to which they were assigned.
+| Step | Technique | Result |
+|------|-----------|--------|
+| Dimensionality reduction | PCA | Retained 80% of variance |
+| Optimal clusters | Elbow method | k=5 identified |
+| Segmentation | K-Means clustering | 5 distinct customer profiles |
+| Validation | Silhouette Score + Calinski-Harabasz + Davies-Bouldin | Clusters well-defined and separated |
 
-In summary, this project demonstrates how unsupervised learning can be used to efficiently segment customers. Furthermore, a reusable system was built that allows new customers to be classified in real time, facilitating strategic decision-making based on well-defined profiles.
+## Key results
 
-This project aims to segment the customers of a financial company using unsupervised learning techniques. To do so, the project begins with the import and visual exploration of the original dataset, which includes variables such as salary, credit card limit, customer tenure, credit type, and whether they were offered a product. This initial exploration allows potential visual groupings to be identified, particularly by observing relationships such as salary versus credit limit.
+- Identified **5 distinct customer profiles** based on salary, credit limit, tenure, and credit type
+- PCA reduced feature space while retaining **80% of total variance**
+- Model validated on **50 new customers** using the same scaler and PCA pipeline
+- Reusable system allows real-time classification of new customers
 
-Principal component analysis (PCA) was then applied, a statistical technique that reduces the dimension of the dataset without losing too much information. This facilitates subsequent analysis and improves model performance. PCA managed to reduce the number of variables while retaining 80% of the total variance. With the transformed data, the elbow method was used to determine the optimal number of clusters, which indicated that 5 was the appropriate number to segment customers.
+## Variables used
 
-The KMeans algorithm was then applied with 5 clusters, grouping customers according to similarities found in the PCA-transformed data. The quality of the model was subsequently evaluated using metrics such as the Silhouette Score, Calinski-Harabasz, and Davies-Bouldin, confirming that the clusters were well-defined and separated. In addition, 3D graphs were created to visualize these groups more intuitively.
+`salary` · `credit_card_limit` · `customer_tenure` · `credit_type` · `product_offered`
 
-Once the groups were created, their average characteristics (salary, credit limit, length of time as a customer) were analyzed, and the number of customers offered specific products or types of credit was counted. This allowed the clusters to be characterized and the typical customer profile in each group to be understood. Bar charts were also generated to clearly visualize these differences and compare them.
+## Business impact
 
-Finally, the same trained model was applied to a new dataset with 50 new customers. These data were processed using the same scaler, PCA, and clustering model, ensuring consistency with the original model. They were then visualized alongside the previous customers in a 3D graph, clearly differentiating the new ones through the use of different symbols. The data was also calculated the average salaries, credit limits, and seniority for new customers based on the cluster to which they were assigned.
+Each cluster maps to a customer archetype with different risk profiles and product affinity. Marketing teams can use these segments to prioritize high-value customers, design retention strategies, and reduce campaign costs by eliminating irrelevant outreach.
 
-In short, this project demonstrates how unsupervised learning can be used to efficiently segment customers. Furthermore, a reusable system was built that allows new customers to be classified in real time, facilitating strategic decision-making based on well-defined profiles.
+## How to run
+
+```bash
+git clone https://github.com/Kathela/Customer-Segmentation-for-Financial-Product
+cd Customer-Segmentation-for-Financial-Product
+pip install -r requirements.txt
+jupyter notebook Customer_Segmentation_for_Financial_Product.ipynb
+```
+
+## Tech stack
+
+- **Python** — pandas, NumPy, matplotlib, seaborn
+- **scikit-learn** — PCA, KMeans, silhouette_score, Calinski-Harabasz, Davies-Bouldin
+- **Jupyter Notebook** — analysis and visualization
